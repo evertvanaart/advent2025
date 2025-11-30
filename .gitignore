@@ -1,0 +1,9 @@
+# VS code
+.vscode/
+
+# Build output
+bin/
+build/
+
+# Input files
+data/

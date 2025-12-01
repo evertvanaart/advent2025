@@ -61,17 +61,17 @@ int main(int argc, char **argv) {
         std::println("Profiling solution...");
         double total_ms = 0.0;
 
+        // ignore the time of the first run
         solve(lines, arguments.input_name);
 
         for (int i = 0; i != PROFILE_RUNS; i++) {
             auto start_time = std::chrono::high_resolution_clock::now();
             
-            // ignore the time of the first run
             solve(lines, arguments.input_name);
 
             auto end_time = std::chrono::high_resolution_clock::now();
-            auto duration_us = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-            auto duration_ms = (double) duration_us.count() / 1000.0;
+            auto duration_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time);
+            auto duration_ms = (double) duration_ns.count() / 1000000.0;
             total_ms += duration_ms;
         }
 
@@ -84,8 +84,8 @@ int main(int argc, char **argv) {
         auto solution = solve(lines, arguments.input_name);
 
         auto end_time = std::chrono::high_resolution_clock::now();
-        auto duration_us = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
-        auto duration_ms = (double) duration_us.count() / 1000.0;
+        auto duration_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time);
+        auto duration_ms = (double) duration_ns.count() / 1000.0;
 
         std::println("Solution: {}", stringify(solution));
         std::println("Completed in {:.3f} ms", duration_ms);

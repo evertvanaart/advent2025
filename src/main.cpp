@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
 
         auto end_time = std::chrono::high_resolution_clock::now();
         auto duration_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(end_time - start_time);
-        auto duration_ms = (double) duration_ns.count() / 1000.0;
+        auto duration_ms = (double) duration_ns.count() / 1000000.0;
 
         std::println("Solution: {}", stringify(solution));
         std::println("Completed in {:.3f} ms", duration_ms);

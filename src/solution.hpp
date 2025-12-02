@@ -3,10 +3,13 @@
 #include <string>
 #include <variant>
 
-typedef std::variant<int, double, std::string> Solution;
+typedef std::variant<int, long, double, std::string> Solution;
 
 inline std::string stringify(Solution& solution) {
     if (int const* val = std::get_if<int>(&solution))
+      return std::to_string(*val);
+
+    if (long const* val = std::get_if<long>(&solution))
       return std::to_string(*val);
      
     if (double const* val = std::get_if<double>(&solution))

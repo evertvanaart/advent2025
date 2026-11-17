@@ -2,7 +2,7 @@
 
 Going back to my C++ roots this year, and checking out what's new since the early days of C++11.
 
-Plain C++ up to and including C++23, no dependencies, simple parallel processing where applicable.
+Plain C++ up to and including C++23, no dependencies, no parallel processing.
 
 ```plain
 Usage: make run <task> <input>
@@ -28,6 +28,6 @@ The table below shows the average core runtime of each solution, recorded over a
 |  07  |          26 |          21 |
 |  08  |       3,349 |      35,357 |
 |  09  |          31 |       5,150 |
-|  10  |             |             |
+|  10  |       7,714 |     787.732 |
 |  11  |         331 |         405 |
 |  12  |             |             |
